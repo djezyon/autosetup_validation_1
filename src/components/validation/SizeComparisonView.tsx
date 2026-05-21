@@ -21,16 +21,18 @@ export function SizeComparisonView({ flow }: SizeComparisonViewProps) {
             Found Error
           </div>
           <div className="size-comparison__viewport">
-            <img src={VALIDATION_ASSETS.foundError} alt="Found error preview" />
-            <span className="size-comparison__label" style={{ top: '18%', left: '62%' }}>
-              Head
-            </span>
-            <span className="size-comparison__label" style={{ top: '52%', left: '6%' }}>
-              Right shoulder
-            </span>
-            <span className="size-comparison__label" style={{ top: '52%', left: '68%' }}>
-              Left shoulder
-            </span>
+            <div className="size-comparison__stage">
+              <img src={VALIDATION_ASSETS.foundError} alt="Found error preview" />
+              <span className="size-comparison__label" style={{ top: '18%', left: '62%' }}>
+                Head
+              </span>
+              <span className="size-comparison__label" style={{ top: '52%', left: '6%' }}>
+                Right shoulder
+              </span>
+              <span className="size-comparison__label" style={{ top: '52%', left: '68%' }}>
+                Left shoulder
+              </span>
+            </div>
           </div>
           <div className="size-comparison__copy">
             <span className="size-comparison__chip">Error Overview</span>
@@ -44,15 +46,17 @@ export function SizeComparisonView({ flow }: SizeComparisonViewProps) {
             Suggested Fix
           </div>
           <div className="size-comparison__viewport size-comparison__viewport--fix">
-            <img src={VALIDATION_ASSETS.suggestedFix} alt="Suggested fix preview" />
-            {FIX_HOTSPOTS.map((hotspot) => (
-              <HotspotButton
-                key={hotspot.id}
-                hotspot={hotspot}
-                accepted={acceptedHotspots.has(hotspot.id)}
-                onAccept={() => acceptHotspot(hotspot.id)}
-              />
-            ))}
+            <div className="size-comparison__stage">
+              <img src={VALIDATION_ASSETS.suggestedFix} alt="Suggested fix preview" />
+              {FIX_HOTSPOTS.map((hotspot) => (
+                <HotspotButton
+                  key={hotspot.id}
+                  hotspot={hotspot}
+                  accepted={acceptedHotspots.has(hotspot.id)}
+                  onAccept={() => acceptHotspot(hotspot.id)}
+                />
+              ))}
+            </div>
           </div>
           <div className="size-comparison__copy">
             <span className="size-comparison__chip">Suggested Fix Overview</span>

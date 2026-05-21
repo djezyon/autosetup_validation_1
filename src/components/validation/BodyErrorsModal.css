@@ -18,13 +18,20 @@
 
 .body-errors-modal__dialog {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: min(800px, 100%);
   max-height: calc(100vh - 48px);
-  overflow: auto;
+  overflow: hidden;
   background: var(--surface-100);
   border: 1px solid var(--stroke-default);
   border-radius: 4px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.body-errors-modal__titlebar,
+.body-errors-modal__alert {
+  flex-shrink: 0;
 }
 
 .body-errors-modal__titlebar {
@@ -62,8 +69,27 @@
   color: var(--content-emphasis, #f7f7f8);
 }
 
-.body-errors-modal__accordion {
-  margin: 12px 0 16px;
+.body-errors-modal__primary {
+  flex-shrink: 0;
+  margin-top: 12px;
+  border-top: 1px solid var(--stroke-default);
+}
+
+.body-errors-modal__secondary-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  border-top: 1px solid var(--stroke-default);
+}
+
+.body-errors-modal__secondary-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.body-errors-modal__secondary-scroll::-webkit-scrollbar-thumb {
+  background: var(--shift-300);
+  border-radius: 4px;
 }
 
 .body-errors-modal__item {

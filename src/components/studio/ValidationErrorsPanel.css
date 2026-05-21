@@ -58,6 +58,10 @@
   color: var(--system-alert);
 }
 
+.validation-panel__badge--success .validation-panel__count {
+  font-size: 10px;
+}
+
 .validation-panel__phase1 {
   margin-top: 8px;
 }
@@ -82,10 +86,64 @@
     var(--shift-100);
 }
 
+.panel-chrome__header-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--panel-header-h);
+  padding: 0 6px;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.panel-chrome__header-btn .panel-chrome__title-row {
+  flex: 1;
+  justify-content: center;
+}
+
+.panel-chrome__header-btn:disabled {
+  cursor: default;
+}
+
+.panel-chrome--alert .panel-chrome__header-btn {
+  background: linear-gradient(
+      90deg,
+      var(--alert-bg) 0%,
+      var(--alert-bg) 100%
+    ),
+    var(--shift-100);
+}
+
+.panel-chrome--success .panel-chrome__header-btn {
+  background: var(--shift-100);
+}
+
+.panel-chrome__header-btn .panel-chrome__title {
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .validation-panel__badge {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.validation-panel__count {
+  font-family: var(--font-caption);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.validation-panel__chevron {
+  margin-left: 2px;
+  font-size: 10px;
+  color: var(--content-secondary);
 }
 
 .validation-panel__status-dot {

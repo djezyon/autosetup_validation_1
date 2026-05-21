@@ -12,6 +12,7 @@ interface ValidationErrorsPanelProps {
 }
 
 export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps) {
+  const [panelExpanded, setPanelExpanded] = useState(false);
   const [showRoxyList, setShowRoxyList] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
   const [copyLabel, setCopyLabel] = useState('Copy all');
@@ -43,21 +44,6 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
 
   const headerVariant = allClear ? 'success' : 'alert';
 
-  const badge = (
-    <span
-      className={
-        allClear
-          ? 'validation-panel__badge validation-panel__badge--success'
-          : 'validation-panel__badge validation-panel__badge--alert'
-      }
-    >
-      <span className="validation-panel__status-dot" aria-hidden />
-      <span className="validation-panel__count">
-        {allClear ? 'No Errors' : `${bodyCount} found`}
-      </span>
-    </span>
-  );
-
   return (
     <section
       className={
@@ -68,24 +54,57 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
       aria-label="Validation errors"
       data-figma-node={allClear ? '40000063:57729' : undefined}
     >
-      <PanelChrome title="Validation Errors" variant={headerVariant} badge={badge} />
-
-      {!allClear && (
+      <div className={`panel-chrome panel-chrome--${headerVariant}`}>
         <button
           type="button"
-          className="validation-panel__warning-card"
-          onClick={flow.openModal}
+          className="panel-chrome__header panel-chrome__header-btn"
+          onClick={() => !allClear && setPanelExpanded((v) => !v)}
+          aria-expanded={allClear ? undefined : panelExpanded}
+          disabled={allClear}
         >
-          <span className="validation-panel__warning-title">
-            Validation detected {bodyCount} Errors
-          </span>
-          <span className="validation-panel__warning-hint">
-            Tap to review body errors and suggested fixes
-          </span>
+          <div className="panel-chrome__title-row">
+            <span className="panel-chrome__title">Validation Errors</span>
+            <span
+              className={
+                allClear
+                  ? 'validation-panel__badge validation-panel__badge--success'
+                  : 'validation-panel__badge validation-panel__badge--alert'
+              }
+            >
+              <span className="validation-panel__status-dot" aria-hidden />
+              <span className="validation-panel__count">
+                {allClear ? 'No Errors' : `${bodyCount} found`}
+              </span>
+            </span>
+            {!allClear && (
+              <span className="validation-panel__chevron" aria-hidden>
+                {panelExpanded ? '▾' : '▸'}
+              </span>
+            )}
+          </div>
+          <div className="panel-chrome__actions" aria-hidden>
+            <span className="panel-chrome__icon-btn">⧉</span>
+            <span className="panel-chrome__icon-btn">×</span>
+          </div>
         </button>
-      )}
+      </div>
 
-      <div className="validation-panel__phase1">
+      {panelExpanded && !allClear && (
+        <>
+          <button
+            type="button"
+            className="validation-panel__warning-card"
+            onClick={flow.openModal}
+          >
+            <span className="validation-panel__warning-title">
+              Validation detected {bodyCount} Errors
+            </span>
+            <span className="validation-panel__warning-hint">
+              Tap to review body errors and suggested fixes
+            </span>
+          </button>
+
+          <div className="validation-panel__phase1">
         <button
           type="button"
           className="validation-panel__phase1-toggle"
@@ -146,7 +165,9 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
             </div>
           </div>
         )}
-      </div>
+          </div>
+        </>
+      )}
 
       <PanelChrome title="Properties">
         <div className="validation-panel__properties-placeholder">

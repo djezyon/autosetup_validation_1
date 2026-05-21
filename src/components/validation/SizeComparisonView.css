@@ -53,40 +53,54 @@
   object-fit: contain;
 }
 
-.size-comparison__label {
-  position: absolute;
-  padding: 4px 8px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #202227;
-  font: 600 12px var(--font-caption);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
-}
-
+/* Shared chip layout — found labels mirror suggested-fix hotspot placement */
+.size-comparison__marker,
 .size-comparison__hotspot {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 4px 8px;
-  border: none;
-  background: rgba(255, 255, 255, 0.95);
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
   z-index: 2;
 }
 
-/* Chip corner pinned to dashed box corner (Figma suggested-fix) */
+.size-comparison__marker {
+  background: rgba(255, 255, 255, 0.92);
+  pointer-events: none;
+}
+
+.size-comparison__marker-spacer {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.size-comparison__marker-label {
+  font: 600 10px var(--font-caption);
+  color: #202227;
+  white-space: nowrap;
+}
+
+.size-comparison__hotspot {
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+}
+
+/* Corner anchor — same math on found + suggested (from validation.mock.json) */
+.size-comparison__marker[data-hotspot='head'],
 .size-comparison__hotspot[data-hotspot='head'] {
   transform: translate(0, -100%);
 }
 
+.size-comparison__marker[data-hotspot='right-shoulder'],
 .size-comparison__hotspot[data-hotspot='right-shoulder'] {
   transform: translate(-100%, -100%);
 }
 
+.size-comparison__marker[data-hotspot='left-shoulder'],
 .size-comparison__hotspot[data-hotspot='left-shoulder'] {
   transform: translate(0, -100%);
 }

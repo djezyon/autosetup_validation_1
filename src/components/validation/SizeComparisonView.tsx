@@ -26,15 +26,9 @@ export function SizeComparisonView({ flow, errorId = SIZE_ERROR_ID }: SizeCompar
           <div className="size-comparison__viewport">
             <div className="size-comparison__stage">
               <img src={VALIDATION_ASSETS.foundError} alt="Found error preview" />
-              <span className="size-comparison__label" style={{ top: '18%', left: '62%' }}>
-                Head
-              </span>
-              <span className="size-comparison__label" style={{ top: '52%', left: '6%' }}>
-                Right shoulder
-              </span>
-              <span className="size-comparison__label" style={{ top: '52%', left: '68%' }}>
-                Left shoulder
-              </span>
+              {FIX_HOTSPOTS.map((hotspot) => (
+                <FoundErrorLabel key={hotspot.id} hotspot={hotspot} />
+              ))}
             </div>
           </div>
           <div className="size-comparison__copy">
@@ -85,6 +79,23 @@ export function SizeComparisonView({ flow, errorId = SIZE_ERROR_ID }: SizeCompar
         </div>
       </div>
     </div>
+  );
+}
+
+function FoundErrorLabel({
+  hotspot,
+}: {
+  hotspot: (typeof FIX_HOTSPOTS)[number];
+}) {
+  return (
+    <span
+      className="size-comparison__marker"
+      style={{ top: hotspot.top, left: hotspot.left }}
+      data-hotspot={hotspot.id}
+    >
+      <span className="size-comparison__marker-spacer" aria-hidden />
+      <span className="size-comparison__marker-label">{hotspot.label}</span>
+    </span>
   );
 }
 

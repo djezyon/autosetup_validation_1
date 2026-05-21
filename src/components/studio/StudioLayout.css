@@ -1,0 +1,32 @@
+.studio {
+  display: flex;
+  width: 100%;
+  min-height: 100svh;
+  max-height: 100svh;
+  overflow: hidden;
+  background: var(--surface-100);
+}
+
+.studio__panels {
+  display: flex;
+  flex-direction: column;
+  width: var(--panels-width);
+  min-width: var(--panels-width);
+  max-height: 100svh;
+  border-left: 1px solid var(--stroke-default);
+  background: var(--surface-100);
+}
+
+@media (max-width: 1100px) {
+  .studio {
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: none;
+  }
+
+  .studio__panels {
+    width: 100%;
+    min-width: 0;
+    max-height: 50svh;
+  }
+}

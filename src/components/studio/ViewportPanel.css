@@ -1,0 +1,91 @@
+.viewport-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  background: var(--surface-100);
+}
+
+.viewport-panel__tabs {
+  display: flex;
+  height: 28px;
+  background: var(--surface-100);
+}
+
+.viewport-panel__tab {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  min-width: 64px;
+  font: 400 14px/20px var(--font-ui);
+  color: var(--content-secondary);
+  border-right: 1px solid var(--stroke-default);
+}
+
+.viewport-panel__tab--active {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.viewport-panel__tab-icon {
+  font-size: 12px;
+}
+
+.viewport-panel__tab-close {
+  border: none;
+  background: none;
+  color: inherit;
+  margin-left: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.viewport-panel__canvas {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #3a7bd5;
+}
+
+.viewport-panel__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.viewport-panel__character {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  max-height: 75%;
+  max-width: 85%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.viewport-panel__toolbar {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background: var(--viewport-bg);
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.viewport-panel__toolbar button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--content-default);
+  cursor: pointer;
+  font-size: 12px;
+}

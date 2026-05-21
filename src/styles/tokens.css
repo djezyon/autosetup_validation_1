@@ -1,0 +1,26 @@
+:root {
+  --surface-100: #191a1f;
+  --surface-200: #202227;
+  --panel-bg: #202227;
+  --shift-100: rgba(208, 217, 251, 0.04);
+  --shift-300: rgba(208, 217, 251, 0.12);
+  --content-default: #d5d7dd;
+  --content-secondary: #989898;
+  --text-primary: #e1e1e1;
+  --divider: #171717;
+  --stroke-default: rgba(208, 217, 251, 0.12);
+  --emphasis: #335fff;
+  --system-alert: #df281f;
+  --alert-bg: rgba(255, 0, 0, 0.2);
+  --viewport-bg: #27282c;
+  --warning: #fadc7f;
+  --success: #33de59;
+
+  --font-ui: 'Source Sans Pro', 'Segoe UI', system-ui, sans-serif;
+  --font-caption: 'Builder Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+
+  --panel-header-h: 24px;
+  --setup-width: 500px;
+  --panels-width: 330px;
+}

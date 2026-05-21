@@ -1,0 +1,127 @@
+.error-card {
+  border: 1px solid var(--stroke-default);
+  border-radius: 4px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  background: var(--surface-200);
+}
+
+.error-card--resolved {
+  opacity: 0.5;
+}
+
+.error-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: start;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.error-card__header:hover {
+  background: var(--shift-100);
+}
+
+.error-card__badge {
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.error-card__badge--warning {
+  background: rgba(250, 220, 127, 0.15);
+  color: var(--warning);
+}
+
+.error-card__badge--error {
+  background: rgba(223, 40, 31, 0.15);
+  color: var(--system-alert);
+}
+
+.error-card__titles h3,
+.error-card__titles h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--content-default);
+}
+
+.error-card__part {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: var(--content-secondary);
+  font-family: var(--font-mono);
+}
+
+.error-card__chevron {
+  color: var(--content-secondary);
+  font-size: 10px;
+}
+
+.error-card__body {
+  padding: 0 10px 10px;
+  border-top: 1px solid var(--stroke-default);
+}
+
+.error-card__fields {
+  margin: 8px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.error-card__fields dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--content-secondary);
+}
+
+.error-card__fields dd {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.error-card__technical summary {
+  font-size: 10px;
+  color: var(--content-secondary);
+  cursor: pointer;
+}
+
+.error-card__technical code {
+  display: block;
+  margin-top: 4px;
+  padding: 6px;
+  border-radius: 3px;
+  background: var(--surface-100);
+  font-size: 10px;
+  word-break: break-word;
+}
+
+.error-card__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.error-card__actions a,
+.error-card__actions button {
+  font-size: 11px;
+  color: var(--emphasis);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.error-card__actions a:hover,
+.error-card__actions button:hover {
+  text-decoration: underline;
+}

@@ -41,7 +41,7 @@
     { "id": "left-shoulder", "label": "Left Shoulder", "top": "58%", "left": "72%" }
   ],
   "assets": {
-    "foundError": "/assets/validation/found-error.svg",
-    "suggestedFix": "/assets/validation/suggested-fix.svg"
+    "foundError": "/assets/validation/found-error.png",
+    "suggestedFix": "/assets/validation/suggested-fix.png"
   }
 }

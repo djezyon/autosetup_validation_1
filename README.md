@@ -37,17 +37,42 @@ git push -u origin main
 
 ```
 src/
-  components/studio/   # Figma-aligned Studio chrome
+  components/studio/          # Figma-aligned Studio chrome
+  components/validation/      # Body Errors modal + size comparison
   components/ErrorCard.tsx
-  data/roxyErrors.ts   # Sample validation issues
-  lib/humanize.ts      # Technical → human translations
+  data/roxyErrors.ts          # Phase 1 Roxy sample issues
+  data/validation.mock.json   # Phase 2 body errors + hotspots
   hooks/useValidationRun.ts
+  hooks/useValidationFlow.ts
+```
+
+## Phase 2 — Body Errors modal flow
+
+Three modal states (same dialog), driven by `useValidationFlow` and Figma nodes:
+
+| State | Figma node | Trigger |
+|-------|------------|---------|
+| Errors + suggestions | `40000072:2798` | Open modal from validation warning card |
+| Accept one | `40000072:3228` | Tap a hotspot on Suggested Fix (e.g. **1 Head**) |
+| Accept all | `40000072:4090` | **Accept All Fixes** (returns to main-setup) |
+
+**Navigation**
+
+- **main-setup → modal:** tap the red validation warning card in the right panel
+- **modal → accept-one:** tap an individual fix hotspot on the Suggested Fix preview
+- **modal → main (applied):** **Accept All Fixes**
+- **modal → main (no apply):** **Edit Manually**, close (×), or backdrop
+- Returning to main-setup preserves explorer selection, setup tabs, and properties target via `StudioSnapshot`
+
+**Data:** `src/data/validation.mock.json` (4 accordion errors; only **Size: Too big** has full comparison UI). Preview placeholders: `public/assets/validation/`.
+
+```bash
+npm run dev
 ```
 
 ## Next phases
 
 | Phase | Focus |
 |-------|--------|
-| 2 | Error prioritization, filters, blocking vs warning |
 | 3 | In-panel “what’s next” + test in Play Mode |
 | 4 | Figma component parity + eng handoff spec |

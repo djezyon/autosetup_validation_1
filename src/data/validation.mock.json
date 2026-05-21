@@ -1,0 +1,47 @@
+{
+  "bodyErrors": [
+    {
+      "id": "size-too-big",
+      "index": 1,
+      "title": "Size",
+      "subtitle": "Too big",
+      "hasComparison": true
+    },
+    {
+      "id": "cage-names",
+      "index": 2,
+      "title": "Cage names",
+      "subtitle": "Too big",
+      "hasComparison": false
+    },
+    {
+      "id": "rig-xyz",
+      "index": 3,
+      "title": "Rig",
+      "subtitle": "XYZ is wrong",
+      "hasComparison": false
+    },
+    {
+      "id": "open-too-big",
+      "index": 4,
+      "title": "Open",
+      "subtitle": "Too big",
+      "hasComparison": false
+    }
+  ],
+  "sizeComparison": {
+    "errorHeadline": "Your model is 17% bigger than max",
+    "errorBody": "For the best performance of your character, we limit character size.",
+    "fixHeadline": "17% decreased size",
+    "fixBody": "17% reduced model will meet the criteria while your model is still big as you wanted. Tap individual to accept itemized fix or all fixes with button below."
+  },
+  "hotspots": [
+    { "id": "head", "label": "Head", "top": "12%", "left": "62%" },
+    { "id": "right-shoulder", "label": "Right Shoulder", "top": "58%", "left": "8%" },
+    { "id": "left-shoulder", "label": "Left Shoulder", "top": "58%", "left": "72%" }
+  ],
+  "assets": {
+    "foundError": "/assets/validation/found-error.svg",
+    "suggestedFix": "/assets/validation/suggested-fix.svg"
+  }
+}

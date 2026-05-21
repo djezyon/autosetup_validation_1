@@ -48,17 +48,28 @@ const TREE: TreeNode[] = [
   },
 ];
 
-function TreeRow({ node }: { node: TreeNode }) {
+function TreeRow({
+  node,
+  selection,
+  onSelect,
+}: {
+  node: TreeNode;
+  selection: string;
+  onSelect: (name: string) => void;
+}) {
   const depth = node.depth ?? 0;
+  const isSelected = node.name === selection;
   return (
     <>
-      <div
+      <button
+        type="button"
         className={
-          node.selected
+          isSelected
             ? 'explorer__row explorer__row--selected'
             : 'explorer__row'
         }
         style={{ paddingLeft: `${8 + depth * 16}px` }}
+        onClick={() => onSelect(node.name)}
       >
         {node.children ? (
           <span className="explorer__arrow">{node.expanded ? '▾' : '▸'}</span>
@@ -67,14 +78,26 @@ function TreeRow({ node }: { node: TreeNode }) {
         )}
         <span className="explorer__icon">{node.icon}</span>
         <span className="explorer__name">{node.name}</span>
-      </div>
+      </button>
       {node.expanded &&
-        node.children?.map((child) => <TreeRow key={child.name} node={child} />)}
+        node.children?.map((child) => (
+          <TreeRow
+            key={child.name}
+            node={child}
+            selection={selection}
+            onSelect={onSelect}
+          />
+        ))}
     </>
   );
 }
 
-export function ExplorerPanel() {
+interface ExplorerPanelProps {
+  selection: string;
+  onSelect: (name: string) => void;
+}
+
+export function ExplorerPanel({ selection, onSelect }: ExplorerPanelProps) {
   return (
     <section className="explorer" aria-label="Explorer">
       <header className="explorer__header">
@@ -89,7 +112,12 @@ export function ExplorerPanel() {
       </div>
       <div className="explorer__tree">
         {TREE.map((node) => (
-          <TreeRow key={node.name} node={node} />
+          <TreeRow
+            key={node.name}
+            node={node}
+            selection={selection}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </section>

@@ -5,14 +5,57 @@
   flex: 1;
 }
 
-.validation-panel__header-btn {
-  display: block;
-  width: 100%;
+.validation-panel__warning-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: calc(100% - 24px);
+  margin: 10px 12px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--system-alert);
+  border-radius: 4px;
+  background: rgba(223, 40, 31, 0.14);
+  cursor: pointer;
+  text-align: left;
+}
+
+.validation-panel__warning-card:hover {
+  background: rgba(223, 40, 31, 0.22);
+}
+
+.validation-panel__warning-title {
+  font: 600 13px var(--font-ui);
+  color: var(--content-emphasis, #f7f7f8);
+}
+
+.validation-panel__warning-hint {
+  font-size: 11px;
+  color: var(--content-secondary);
+}
+
+.validation-panel__cleared {
+  margin: 10px 12px 0;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: rgba(57, 197, 130, 0.12);
+  border: 1px solid var(--system-success);
+  font-size: 12px;
+  color: var(--content-default);
+}
+
+.validation-panel__phase1 {
+  margin-top: 8px;
+}
+
+.validation-panel__phase1-toggle {
+  margin: 0 12px;
   padding: 0;
   border: none;
   background: none;
+  font-size: 11px;
+  color: var(--content-secondary);
   cursor: pointer;
-  text-align: left;
+  text-decoration: underline;
 }
 
 .panel-chrome--alert .panel-chrome__header {

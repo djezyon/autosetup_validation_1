@@ -5,6 +5,7 @@
   --shift-100: rgba(208, 217, 251, 0.04);
   --shift-300: rgba(208, 217, 251, 0.12);
   --content-default: #d5d7dd;
+  --content-emphasis: #f7f7f8;
   --content-secondary: #989898;
   --text-primary: #e1e1e1;
   --divider: #171717;
@@ -14,7 +15,8 @@
   --alert-bg: rgba(255, 0, 0, 0.2);
   --viewport-bg: #27282c;
   --warning: #fadc7f;
-  --success: #33de59;
+  --success: #39c582;
+  --system-success: #39c582;
 
   --font-ui: 'Source Sans Pro', 'Segoe UI', system-ui, sans-serif;
   --font-caption: 'Builder Sans', 'Segoe UI', system-ui, sans-serif;

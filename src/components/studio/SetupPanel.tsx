@@ -8,7 +8,20 @@ const PREVIEW_THUMBS = [
   'https://www.figma.com/api/mcp/asset/4d9f7546-427f-4cc4-bdc1-c5b36a604684',
 ];
 
-export function SetupPanel() {
+interface SetupPanelProps {
+  primaryTab: string;
+  secondaryTab: string;
+  onTabChange: (patch: {
+    setupPrimaryTab?: string;
+    setupSecondaryTab?: string;
+  }) => void;
+}
+
+export function SetupPanel({
+  primaryTab,
+  secondaryTab,
+  onTabChange,
+}: SetupPanelProps) {
   return (
     <section className="setup-panel" aria-label="Avatar Setup">
       <header className="setup-panel__header">
@@ -46,10 +59,11 @@ export function SetupPanel() {
                 key={tab}
                 type="button"
                 className={
-                  tab === 'Body'
+                  tab === primaryTab
                     ? 'setup-panel__tab setup-panel__tab--active'
                     : 'setup-panel__tab'
                 }
+                onClick={() => onTabChange({ setupPrimaryTab: tab })}
               >
                 {tab}
               </button>
@@ -61,10 +75,11 @@ export function SetupPanel() {
                 key={tab}
                 type="button"
                 className={
-                  tab === 'Head'
+                  tab === secondaryTab
                     ? 'setup-panel__tab setup-panel__tab--active'
                     : 'setup-panel__tab'
                 }
+                onClick={() => onTabChange({ setupSecondaryTab: tab })}
               >
                 {tab}
               </button>

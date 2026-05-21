@@ -39,20 +39,38 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
   };
 
   const bodyCount = flow.openCount;
+  const allClear = bodyCount === 0;
+
+  const headerVariant = allClear ? 'success' : 'alert';
+
   const badge = (
-    <span className="validation-panel__badge">
+    <span
+      className={
+        allClear
+          ? 'validation-panel__badge validation-panel__badge--success'
+          : 'validation-panel__badge validation-panel__badge--alert'
+      }
+    >
       <span className="validation-panel__status-dot" aria-hidden />
       <span className="validation-panel__count">
-        {bodyCount > 0 ? `${bodyCount} found` : 'cleared'}
+        {allClear ? 'No Errors' : `${bodyCount} found`}
       </span>
     </span>
   );
 
   return (
-    <section className="validation-panel" aria-label="Validation errors">
-      <PanelChrome title="Validation Errors" variant="alert" badge={badge} />
+    <section
+      className={
+        allClear
+          ? 'validation-panel validation-panel--all-clear'
+          : 'validation-panel'
+      }
+      aria-label="Validation errors"
+      data-figma-node={allClear ? '40000063:57729' : undefined}
+    >
+      <PanelChrome title="Validation Errors" variant={headerVariant} badge={badge} />
 
-      {bodyCount > 0 ? (
+      {!allClear && (
         <button
           type="button"
           className="validation-panel__warning-card"
@@ -65,10 +83,6 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
             Tap to review body errors and suggested fixes
           </span>
         </button>
-      ) : (
-        <p className="validation-panel__cleared" role="status">
-          All body fixes applied. Re-run validation to scan again.
-        </p>
       )}
 
       <div className="validation-panel__phase1">

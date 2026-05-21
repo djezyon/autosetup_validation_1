@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 interface PanelChromeProps {
   title: string;
-  variant?: 'default' | 'alert';
+  variant?: 'default' | 'alert' | 'success';
   badge?: ReactNode;
   children?: React.ReactNode;
 }

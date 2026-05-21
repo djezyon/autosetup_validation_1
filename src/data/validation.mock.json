@@ -11,18 +11,6 @@
       "title": "Cage names",
       "subtitle": "Duplicated names, Not Roblox naming",
       "panel": "rename-table"
-    },
-    {
-      "id": "rig-xyz",
-      "title": "Rig",
-      "subtitle": "XYZ is wrong",
-      "panel": "rename-table"
-    },
-    {
-      "id": "open-too-big",
-      "title": "Open",
-      "subtitle": "Too big",
-      "panel": "rename-table"
     }
   ],
   "sizeComparison": {

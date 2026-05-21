@@ -33,14 +33,29 @@
   color: var(--content-secondary);
 }
 
-.validation-panel__cleared {
-  margin: 10px 12px 0;
-  padding: 10px 12px;
-  border-radius: 4px;
-  background: rgba(57, 197, 130, 0.12);
-  border: 1px solid var(--system-success);
-  font-size: 12px;
-  color: var(--content-default);
+/* All errors resolved — Figma 40000063:57729 */
+.validation-panel--all-clear {
+  border-bottom: 1px solid var(--stroke-default);
+}
+
+.panel-chrome--success .panel-chrome__header {
+  background: var(--shift-100);
+}
+
+.validation-panel__badge--success .validation-panel__status-dot {
+  background: var(--system-success, #39c582);
+}
+
+.validation-panel__badge--success .validation-panel__count {
+  color: var(--system-success, #39c582);
+}
+
+.validation-panel__badge--alert .validation-panel__status-dot {
+  background: var(--system-alert);
+}
+
+.validation-panel__badge--alert .validation-panel__count {
+  color: var(--system-alert);
 }
 
 .validation-panel__phase1 {
@@ -77,15 +92,6 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--system-alert);
-}
-
-.validation-panel__count {
-  font-family: var(--font-caption);
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 14px;
-  color: var(--system-alert);
 }
 
 .validation-panel__body {

@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { BODY_ERROR_COUNT } from '../../data/bodyErrors';
 import type { ValidationFlowState } from '../../hooks/useValidationFlow';
 import type { ValidationRunState } from '../../hooks/useValidationRun';
 import { formatIssuesForCopy, groupByCategory } from '../../lib/humanize';
@@ -60,7 +59,7 @@ export function ValidationErrorsPanel({ run, flow }: ValidationErrorsPanelProps)
           onClick={flow.openModal}
         >
           <span className="validation-panel__warning-title">
-            Validation detected {BODY_ERROR_COUNT} Errors
+            Validation detected {bodyCount} Errors
           </span>
           <span className="validation-panel__warning-hint">
             Tap to review body errors and suggested fixes

@@ -1,4 +1,5 @@
 import { BodyErrorsModal } from '../validation/BodyErrorsModal';
+import { FixSnackbar } from '../validation/FixSnackbar';
 import type { ValidationFlowState } from '../../hooks/useValidationFlow';
 import type { ValidationRunState } from '../../hooks/useValidationRun';
 import { ExplorerPanel } from './ExplorerPanel';
@@ -31,6 +32,7 @@ export function StudioLayout({ run, flow }: StudioLayoutProps) {
         <ValidationErrorsPanel run={run} flow={flow} />
       </aside>
       {flow.flowScreen === 'modal' && <BodyErrorsModal flow={flow} />}
+      <FixSnackbar message={flow.snackbarMessage} />
     </div>
   );
 }

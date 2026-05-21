@@ -6,12 +6,15 @@ import {
 import type { ValidationFlowState } from '../../hooks/useValidationFlow';
 import './SizeComparisonView.css';
 
+const SIZE_ERROR_ID = 'size-too-big';
+
 interface SizeComparisonViewProps {
   flow: ValidationFlowState;
+  errorId?: string;
 }
 
-export function SizeComparisonView({ flow }: SizeComparisonViewProps) {
-  const { modalView, acceptedHotspots, acceptHotspot } = flow;
+export function SizeComparisonView({ flow, errorId = SIZE_ERROR_ID }: SizeComparisonViewProps) {
+  const { modalView, acceptHotspot, acceptAllForError, isHotspotAccepted } = flow;
 
   return (
     <div className="size-comparison" data-modal-view={modalView}>
@@ -52,7 +55,7 @@ export function SizeComparisonView({ flow }: SizeComparisonViewProps) {
                 <HotspotButton
                   key={hotspot.id}
                   hotspot={hotspot}
-                  accepted={acceptedHotspots.has(hotspot.id)}
+                  accepted={isHotspotAccepted(hotspot.id)}
                   onAccept={() => acceptHotspot(hotspot.id)}
                 />
               ))}
@@ -66,7 +69,7 @@ export function SizeComparisonView({ flow }: SizeComparisonViewProps) {
               <button
                 type="button"
                 className="size-comparison__btn size-comparison__btn--primary"
-                onClick={flow.acceptAllFixes}
+                onClick={() => acceptAllForError(errorId)}
               >
                 Accept All Fixes
               </button>

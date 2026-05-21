@@ -2,31 +2,27 @@
   "bodyErrors": [
     {
       "id": "size-too-big",
-      "index": 1,
       "title": "Size",
       "subtitle": "Too big",
-      "hasComparison": true
+      "panel": "size-comparison"
     },
     {
       "id": "cage-names",
-      "index": 2,
       "title": "Cage names",
-      "subtitle": "Too big",
-      "hasComparison": false
+      "subtitle": "Duplicated names, Not Roblox naming",
+      "panel": "rename-table"
     },
     {
       "id": "rig-xyz",
-      "index": 3,
       "title": "Rig",
       "subtitle": "XYZ is wrong",
-      "hasComparison": false
+      "panel": "rename-table"
     },
     {
       "id": "open-too-big",
-      "index": 4,
       "title": "Open",
       "subtitle": "Too big",
-      "hasComparison": false
+      "panel": "rename-table"
     }
   ],
   "sizeComparison": {
@@ -35,13 +31,63 @@
     "fixHeadline": "17% decreased size",
     "fixBody": "17% reduced model will meet the criteria while your model is still big as you wanted. Tap individual to accept itemized fix or all fixes with button below."
   },
+  "cageNameFixes": [
+    {
+      "id": "head-cage",
+      "found": "head_outercage",
+      "foundChip": "lower case",
+      "suggested": "Head_OuterCage",
+      "suggestedChip": "Title case"
+    },
+    {
+      "id": "rightarm-cage",
+      "found": "rightarm_outercage",
+      "foundChip": "Two right arm was found, lower case",
+      "suggested": "LeftArm_OuterCage",
+      "suggestedChip": "Title case, right part"
+    },
+    {
+      "id": "leftleg-cage",
+      "found": "leftleg_outercage",
+      "foundChip": "Two right arm was found, lower case",
+      "suggested": "LeftLeg_OuterCage",
+      "suggestedChip": "Title case, right part"
+    }
+  ],
+  "cageNameCopy": {
+    "errorHeadline": "Duplicated names and lower case caused errors",
+    "errorBody": "",
+    "fixHeadline": "Title case and assign name to corresponding parts",
+    "fixBody": "Naming parts correct with right naming convention allows Roblox to function your character right without friction. You can accept fix individually via check box or accept all with the button below"
+  },
   "hotspots": [
-    { "id": "head", "label": "Head", "top": "9%", "left": "57%" },
-    { "id": "right-shoulder", "label": "Right Shoulder", "top": "39%", "left": "25%" },
-    { "id": "left-shoulder", "label": "Left Shoulder", "top": "39%", "left": "71%" }
+    {
+      "id": "head",
+      "label": "Head",
+      "snackbarName": "Head",
+      "top": "9%",
+      "left": "57%"
+    },
+    {
+      "id": "right-shoulder",
+      "label": "Right Shoulder",
+      "snackbarName": "Right_Shoulder",
+      "top": "39%",
+      "left": "25%"
+    },
+    {
+      "id": "left-shoulder",
+      "label": "Left Shoulder",
+      "snackbarName": "Left_Shoulder",
+      "top": "39%",
+      "left": "71%"
+    }
   ],
   "assets": {
     "foundError": "/assets/validation/found-error.png",
     "suggestedFix": "/assets/validation/suggested-fix.png"
+  },
+  "snackbar": {
+    "durationMs": 4000
   }
 }

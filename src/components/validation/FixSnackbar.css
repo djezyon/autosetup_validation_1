@@ -1,0 +1,25 @@
+.fix-snackbar {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 200;
+  pointer-events: none;
+}
+
+.fix-snackbar__text {
+  margin: 0;
+  padding: 8px 16px;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: #fff;
+  color: #202227;
+  font: 600 14px/20px var(--font-caption);
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgba(4, 4, 8, 0.35),
+    0 2px 4px rgba(4, 4, 8, 0.25),
+    0 10px 20px rgba(4, 4, 8, 0.25);
+}

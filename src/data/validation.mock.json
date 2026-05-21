@@ -36,9 +36,9 @@
     "fixBody": "17% reduced model will meet the criteria while your model is still big as you wanted. Tap individual to accept itemized fix or all fixes with button below."
   },
   "hotspots": [
-    { "id": "head", "label": "Head", "top": "12%", "left": "62%" },
-    { "id": "right-shoulder", "label": "Right Shoulder", "top": "58%", "left": "8%" },
-    { "id": "left-shoulder", "label": "Left Shoulder", "top": "58%", "left": "72%" }
+    { "id": "head", "label": "Head", "top": "9%", "left": "57%" },
+    { "id": "right-shoulder", "label": "Right Shoulder", "top": "39%", "left": "25%" },
+    { "id": "left-shoulder", "label": "Left Shoulder", "top": "39%", "left": "71%" }
   ],
   "assets": {
     "foundError": "/assets/validation/found-error.png",

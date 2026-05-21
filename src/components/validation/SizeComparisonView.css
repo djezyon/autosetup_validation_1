@@ -75,8 +75,20 @@
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+/* Chip corner pinned to dashed box corner (Figma suggested-fix) */
+.size-comparison__hotspot[data-hotspot='head'] {
+  transform: translate(0, -100%);
+}
+
+.size-comparison__hotspot[data-hotspot='right-shoulder'] {
+  transform: translate(-100%, -100%);
+}
+
+.size-comparison__hotspot[data-hotspot='left-shoulder'] {
+  transform: translate(0, -100%);
 }
 
 .size-comparison__hotspot:hover {

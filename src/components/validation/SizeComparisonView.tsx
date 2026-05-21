@@ -105,6 +105,7 @@ function HotspotButton({
           : 'size-comparison__hotspot'
       }
       style={{ top: hotspot.top, left: hotspot.left }}
+      data-hotspot={hotspot.id}
       onClick={onAccept}
       aria-pressed={accepted}
     >
